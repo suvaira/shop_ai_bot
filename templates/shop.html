@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop AI Assistant</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1 id="shop-title">Shop AI Assistant</h1>
+    <p class="muted">Yeh bot shop owner ki rules aur policies ke hisaab se answer deta hai.</p>
+
+    <section class="card chat">
+      <div id="chat-box" class="chat-box"></div>
+      <form id="chat-form" class="chat-form">
+        <input id="msg" placeholder="Type your question..." autocomplete="off" required />
+        <button type="submit">Send</button>
+      </form>
+      <p class="muted" id="status">Status: online-ready + offline fallback enabled</p>
+    </section>
+  </main>
+  <script src="/static/chat.js"></script>
+</body>
+</html>
