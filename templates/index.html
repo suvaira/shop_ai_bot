@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Shop AI Builder</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Local Shop AI Bot Builder</h1>
+    <p class="muted">Apni dukaan ka AI chatbot banaiye jo local setup me chale aur har shop ka unique URL generate kare.</p>
+
+    <section class="card">
+      <h2>1) Shop Configuration</h2>
+      <form id="shop-form">
+        <label>Shop Name
+          <input name="name" placeholder="Sharma Kirana Store" required />
+        </label>
+        <label>Timings
+          <input name="timings" placeholder="Mon-Sat 9AM-9PM" />
+        </label>
+        <label>Products (comma separated)
+          <textarea name="products" placeholder="Atta, Rice, Oil, Soap"></textarea>
+        </label>
+        <label>Rules / Policies (one per line)
+          <textarea name="rules" placeholder="Return within 2 days with bill\nNo refund on opened items"></textarea>
+        </label>
+        <label>Quick Q&A (format: question => answer, one per line)
+          <textarea name="qna" placeholder="delivery available => Haan, 3km tak free delivery\nupi accepted => Haan, UPI accepted"></textarea>
+        </label>
+        <button type="submit">Create Shop AI</button>
+      </form>
+    </section>
+
+    <section class="card" id="result" hidden>
+      <h2>2) Your AI is Ready</h2>
+      <p><strong>Unique URL:</strong> <a id="shop-link" target="_blank" rel="noopener"></a></p>
+      <p><strong>Owner Key:</strong> <code id="owner-key"></code></p>
+      <p class="muted">Owner key safe rakho. Isi key se update/delete/log APIs authorized honge.</p>
+    </section>
+
+    <section class="card">
+      <h2>3) Admin APIs</h2>
+      <ul>
+        <li><code>GET /api/shops</code></li>
+        <li><code>PUT /api/shops/&lt;slug&gt;</code> (header: <code>X-Owner-Key</code>)</li>
+        <li><code>DELETE /api/shops/&lt;slug&gt;</code> (header: <code>X-Owner-Key</code>)</li>
+        <li><code>GET /api/shops/&lt;slug&gt;/logs</code> (header: <code>X-Owner-Key</code>)</li>
+      </ul>
+    </section>
+  </main>
+  <script src="/static/builder.js"></script>
+</body>
+</html>

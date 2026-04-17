@@ -1,0 +1,2 @@
+# No external dependency required.
+# App runs on Python standard library (http.server + sqlite3).
